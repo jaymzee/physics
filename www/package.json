@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "physics": "file:../pkg"
+    "physics": "file:../pkg",
+    "three": "^0.132.2"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^9.0.1",
