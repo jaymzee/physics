@@ -1,8 +1,12 @@
-import { hello, get_matrix } from 'physics';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import * as physics from 'physics';
 
-console.log(get_matrix());
+physics.init();
+
+const sphere_pos = physics.modify_vec3([-4, 2, 0]);
+console.log(sphere_pos);
+console.log(physics.solve3([8, 1, 6, 3, 5, 7, 4, 9, 2], [1, 2, 3]));
 
 const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
@@ -52,7 +56,8 @@ scene.add(cube);
 const sphereGeo = new THREE.SphereGeometry(2, 32, 16);
 const sphereMat = new THREE.MeshPhongMaterial({ color: "#FF0000" });
 const sphere = new THREE.Mesh(sphereGeo, sphereMat);
-sphere.position.set(-3, 2, 0);
+//sphere.position.set(-3, 2, 0);
+sphere.position.set(...sphere_pos);
 scene.add(sphere);
 
 // Ambient light
